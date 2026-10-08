@@ -1,0 +1,465 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    background-image: url(./images/background/background-landscape.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+.app {
+    display: flex;
+    margin-left: 50px;
+    margin-top: 0px;
+}
+
+.character-profile {
+    flex: 1;
+    padding: 20px;
+    position: relative;
+}
+
+.character-area {
+    width: 200px;
+    height: 267px;
+    position: relative;
+}
+
+.riley-sprite img {
+    width: 240px;
+    position: absolute;
+    left: -30px;
+    top: 180px;
+    z-index: 20;
+}
+
+.character-info h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+.character-info p {
+    margin: 8px 0;
+}
+
+.missions {
+    flex: 2;
+    padding: 20px;
+}
+
+
+
+.task span {
+    color: #00aaff;
+}
+
+.task span.mission-complete {
+    color: #ffd700 !important;
+    text-shadow:
+        0 0 5px #ffd700,
+        0 0 10px #c5c1a9,
+        0 0 20px rgba(255, 215, 0, 0.8);
+}
+
+.mission-input {
+    padding: 10px;
+    border: 1px solid #00aaff;
+    background: rgba(0, 20, 40, 0.6);
+    color: #00aaff;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.task-list {
+    min-height: 300px;
+    margin-top: 20px;
+    border: 1px solid #00aaff;
+    background: rgba(0, 20, 40, 0.35);
+
+    box-shadow:
+        0 0 12px rgba(0, 170, 255, 0.4),
+        inset 0 0 20px rgba(0, 170, 255, 0.15);
+
+    border-radius: 6px;
+}
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #00aaff;
+    background: rgba(0, 20, 40, 0.6);
+    position: relative;
+    overflow: hidden;
+
+}
+
+.task::after {
+    content: "";
+    position: absolute;
+    width: 140%;
+    height: 3px;
+    background: #00aaff;
+    box-shadow:
+        0 0 5px #00aaff,
+        0 0 10px #00aaff,
+        0 0 20px rgba(0, 170, 255, 0.8);
+
+    top: 50%;
+    left: -20%;
+
+    transform: rotate(25deg);
+    transform-origin: center;
+
+    opacity: 0;
+    pointer-events: none;
+}
+
+.task.slash::after {
+    opacity: 1;
+}
+
+@keyframes mission-slash {
+    0% {
+        left: -120%;
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        left: 120%;
+        opacity: 0;
+    }
+}
+
+#mission-title {
+    position:relative;
+    color: #00aaffd0;
+    font-size: 20px;
+    font-weight: bold;
+    left: 220px;
+
+    text-shadow:
+        0 0 5px #00aaffc7,
+        0 0 10px #00aaff,
+        0 0 20px rgba(0, 170, 255, 0.8);
+}
+
+.task button {
+    padding: 8px 15px;
+    border: 1px solid #00aaff;
+    background: transparent;
+    color: #00aaff;
+}
+
+.task button:hover {
+    background: rgba(0, 170, 255, 0.15);
+    box-shadow: 0 0 10px rgba(0, 170, 255, 0.6);
+}
+
+.add-mission {
+    padding: 10px 15px;
+    border: 1px solid #00aaff;
+    background-color: transparent;
+    color: #00aaff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-mission:hover {
+    background: rgba(0, 170, 255, 0.15);
+    box-shadow: 0 0 10px rgba(0, 170, 255, 0.6);
+}
+
+.mission-fade {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+
+.music-tab {
+    position: absolute;
+    top: 5px;
+    left: -5px;
+
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    z-index: 20;
+}
+
+#music-icon {
+    width: 60px;
+    height: auto;
+    flex-shrink: 0;
+}
+
+#music-play,
+#music-next,
+#music-loop {
+    padding: 8px 15px;
+
+    border: 1px solid #00aaff;
+    background: rgba(0, 20, 40, 0.6);
+    color: #00aaff;
+    border-radius: 4px;
+
+    box-shadow:
+        0 0 8px rgba(0, 170, 255, 0.5),
+        inset 0 0 8px rgba(0, 170, 255, 0.15);
+
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+#music-play {
+    width: 67px;
+}
+
+#music-play:hover,
+#music-next:hover,
+#music-loop:hover,
+#rain-toggle:hover {
+    background: rgba(0, 170, 255, 0.2);
+    color: #00aaff;
+
+    box-shadow:
+        0 0 10px #00aaff,
+        0 0 20px #00aaff,
+        0 0 30px rgba(0, 170, 255, 0.6);
+}
+
+#music-name {
+    position: absolute;
+    top: 50px;
+    left: 58px;
+
+    padding: 6px 12px;
+
+    border: 1px solid #00aaff;
+    background: rgba(0, 20, 40, 0.6);
+    color: #00aaff;
+    border-radius: 4px;
+
+    box-shadow:
+        0 0 8px rgba(0, 170, 255, 0.5),
+        inset 0 0 8px rgba(0, 170, 255, 0.15);
+
+    cursor: default;
+}
+
+#rain-tab {
+    position: absolute;
+    top: 85px;
+    left: -5px;
+
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    z-index: 20;
+}
+
+#rain-icon {
+    width: 60px;
+    height: auto;
+    flex-shrink: 0;
+}
+
+#rain-toggle {
+    padding: 8px 15px;
+
+    border: 1px solid #00aaff;
+    background: rgba(0, 20, 40, 0.6);
+    color: #00aaff;
+    border-radius: 4px;
+
+    box-shadow:
+        0 0 8px rgba(0, 170, 255, 0.5),
+        inset 0 0 8px rgba(0, 170, 255, 0.15);
+
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.rain {
+    position: fixed;
+    inset: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    pointer-events: none;
+    overflow: hidden;
+
+    z-index: 10;
+}
+
+.rain-drop {
+    position: absolute;
+    top: -60px;
+
+    width: 1px;
+    height: 40px;
+
+    background: #00aaff;
+    opacity: 0.45;
+
+    animation-name: rainFall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.drop-1  { left: 0%; animation-duration: 0.35s; animation-delay: 0s; }
+.drop-2  { left: 2%; animation-duration: 0.45s; animation-delay: 0.1s; }
+.drop-3  { left: 4%; animation-duration: 0.30s; animation-delay: 0.2s; }
+.drop-4  { left: 6%; animation-duration: 0.50s; animation-delay: 0.05s; }
+.drop-5  { left: 8%; animation-duration: 0.35s; animation-delay: 0.15s; }
+
+.drop-6  { left: 10%; animation-duration: 0.40s; animation-delay: 0.25s; }
+.drop-7  { left: 12%; animation-duration: 0.30s; animation-delay: 0.1s; }
+.drop-8  { left: 14%; animation-duration: 0.45s; animation-delay: 0.2s; }
+.drop-9  { left: 16%; animation-duration: 0.35s; animation-delay: 0.05s; }
+.drop-10 { left: 18%; animation-duration: 0.50s; animation-delay: 0.3s; }
+
+.drop-11 { left: 20%; animation-duration: 0.30s; animation-delay: 0.15s; }
+.drop-12 { left: 22%; animation-duration: 0.40s; animation-delay: 0.25s; }
+.drop-13 { left: 24%; animation-duration: 0.35s; animation-delay: 0.1s; }
+.drop-14 { left: 26%; animation-duration: 0.45s; animation-delay: 0.2s; }
+.drop-15 { left: 28%; animation-duration: 0.30s; animation-delay: 0.05s; }
+
+.drop-16 { left: 30%; animation-duration: 0.50s; animation-delay: 0.3s; }
+.drop-17 { left: 32%; animation-duration: 0.35s; animation-delay: 0.15s; }
+.drop-18 { left: 34%; animation-duration: 0.40s; animation-delay: 0.25s; }
+.drop-19 { left: 36%; animation-duration: 0.30s; animation-delay: 0.1s; }
+.drop-20 { left: 38%; animation-duration: 0.45s; animation-delay: 0.2s; }
+
+.drop-21 { left: 40%; animation-duration: 0.35s; animation-delay: 0.05s; }
+.drop-22 { left: 42%; animation-duration: 0.50s; animation-delay: 0.3s; }
+.drop-23 { left: 44%; animation-duration: 0.30s; animation-delay: 0.15s; }
+.drop-24 { left: 46%; animation-duration: 0.40s; animation-delay: 0.25s; }
+.drop-25 { left: 48%; animation-duration: 0.35s; animation-delay: 0.1s; }
+
+.drop-26 { left: 50%; animation-duration: 0.45s; animation-delay: 0.2s; }
+.drop-27 { left: 52%; animation-duration: 0.30s; animation-delay: 0.05s; }
+.drop-28 { left: 54%; animation-duration: 0.50s; animation-delay: 0.3s; }
+.drop-29 { left: 56%; animation-duration: 0.35s; animation-delay: 0.15s; }
+.drop-30 { left: 58%; animation-duration: 0.40s; animation-delay: 0.25s; }
+
+.drop-31 { left: 60%; animation-duration: 0.30s; animation-delay: 0.1s; }
+.drop-32 { left: 62%; animation-duration: 0.45s; animation-delay: 0.2s; }
+.drop-33 { left: 64%; animation-duration: 0.35s; animation-delay: 0.05s; }
+.drop-34 { left: 66%; animation-duration: 0.50s; animation-delay: 0.3s; }
+.drop-35 { left: 68%; animation-duration: 0.30s; animation-delay: 0.15s; }
+
+.drop-36 { left: 70%; animation-duration: 0.40s; animation-delay: 0.25s; }
+.drop-37 { left: 72%; animation-duration: 0.35s; animation-delay: 0.1s; }
+.drop-38 { left: 74%; animation-duration: 0.45s; animation-delay: 0.2s; }
+.drop-39 { left: 76%; animation-duration: 0.30s; animation-delay: 0.05s; }
+.drop-40 { left: 78%; animation-duration: 0.50s; animation-delay: 0.3s; }
+
+.drop-41 { left: 80%; animation-duration: 0.35s; animation-delay: 0.15s; }
+.drop-42 { left: 82%; animation-duration: 0.40s; animation-delay: 0.25s; }
+.drop-43 { left: 84%; animation-duration: 0.30s; animation-delay: 0.1s; }
+.drop-44 { left: 86%; animation-duration: 0.45s; animation-delay: 0.2s; }
+.drop-45 { left: 88%; animation-duration: 0.35s; animation-delay: 0.05s; }
+
+.drop-46 { left: 90%; animation-duration: 0.50s; animation-delay: 0.3s; }
+.drop-47 { left: 92%; animation-duration: 0.30s; animation-delay: 0.15s; }
+.drop-48 { left: 94%; animation-duration: 0.40s; animation-delay: 0.25s; }
+.drop-49 { left: 96%; animation-duration: 0.35s; animation-delay: 0.1s; }
+.drop-50 { left: 100%; animation-duration: 0.45s; animation-delay: 0.2s; }
+
+@keyframes rainFall {
+    from {
+        transform: translate(-10px, -60px);
+    }
+
+    to {
+        transform: translate(30px, calc(100vh + 40px));
+    }
+}
+
+@media (max-width: 1200px) {
+    .riley-sprite img {
+        left: -50px;
+    }
+
+    .missions h2 {
+        margin-left: 480px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .riley-sprite img {
+        left: -25px;
+    }
+
+    .missions h2 {
+        margin-left: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .riley-sprite img {
+        left: -30px;
+    }
+
+    .app {
+        margin-left: 0px;
+    }
+
+    .missions h2 {
+        margin-left: 120px;
+    }
+
+    .add-mission {
+        font-weight: bold;
+    }
+
+    .missions {
+        text-align: center;
+    }
+
+    .mission-input {
+        font-weight: bold;
+    }
+
+    .music-controls {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 520px) {
+    .riley-sprite img {
+        width: 190px;
+        top: 260px;
+        left: -25px;
+    }
+
+    .missions h2 {
+        margin-left: 50px;
+    }
+
+    .music-controls {
+        gap: 8px;
+    }
+}
