@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Board</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+    <div class="music-tab">
+        <img id="music-icon" src="./images/music-icon.png">
+        <button id="music-play">Play</button>
+        <button id="music-next">Next</button>
+        <button id="music-loop">Loop: Off</button>
+    </div>
+
+    <button id="music-name">Now Playing: Deadly Force</button>
+    
+    <div id="rain-tab">
+        <img id="rain-icon" src="./images/rain-icon.png">
+        <button id="rain-toggle">Rain Audio: On</button>
+    </div>
+    
+    <div class="rain">
+    <div class="rain-drop drop-1"></div>
+    <div class="rain-drop drop-2"></div>
+    <div class="rain-drop drop-3"></div>
+    <div class="rain-drop drop-4"></div>
+    <div class="rain-drop drop-5"></div>
+    <div class="rain-drop drop-6"></div>
+    <div class="rain-drop drop-7"></div>
+    <div class="rain-drop drop-8"></div>
+    <div class="rain-drop drop-9"></div>
+    <div class="rain-drop drop-10"></div>
+    <div class="rain-drop drop-11"></div>
+    <div class="rain-drop drop-12"></div>
+    <div class="rain-drop drop-13"></div>
+    <div class="rain-drop drop-14"></div>
+    <div class="rain-drop drop-15"></div>
+    <div class="rain-drop drop-16"></div>
+    <div class="rain-drop drop-17"></div>
+    <div class="rain-drop drop-18"></div>
+    <div class="rain-drop drop-19"></div>
+    <div class="rain-drop drop-20"></div>
+    <div class="rain-drop drop-21"></div>
+    <div class="rain-drop drop-22"></div>
+    <div class="rain-drop drop-23"></div>
+    <div class="rain-drop drop-24"></div>
+    <div class="rain-drop drop-25"></div>
+    <div class="rain-drop drop-26"></div>
+    <div class="rain-drop drop-27"></div>
+    <div class="rain-drop drop-28"></div>
+    <div class="rain-drop drop-29"></div>
+    <div class="rain-drop drop-30"></div>
+    <div class="rain-drop drop-31"></div>
+    <div class="rain-drop drop-32"></div>
+    <div class="rain-drop drop-33"></div>
+    <div class="rain-drop drop-34"></div>
+    <div class="rain-drop drop-35"></div>
+    <div class="rain-drop drop-36"></div>
+    <div class="rain-drop drop-37"></div>
+    <div class="rain-drop drop-38"></div>
+    <div class="rain-drop drop-39"></div>
+    <div class="rain-drop drop-40"></div>
+    <div class="rain-drop drop-41"></div>
+    <div class="rain-drop drop-42"></div>
+    <div class="rain-drop drop-43"></div>
+    <div class="rain-drop drop-44"></div>
+    <div class="rain-drop drop-45"></div>
+    <div class="rain-drop drop-46"></div>
+    <div class="rain-drop drop-47"></div>
+    <div class="rain-drop drop-48"></div>
+    <div class="rain-drop drop-49"></div>
+    <div class="rain-drop drop-50"></div>
+
+</div>
+    <main class="app">
+        <section class="character">
+                <div class ="character-profile">
+                    <div class="character-area">
+                        <div class="riley-sprite">
+                            <img id="riley-sprite-image" src="./images/idle/1.png" alt="riley-1">
+                        </div>
+                    </div>   
+                </div>
+                
+        </section>
+        <section class="missions">
+        
+        <div class="task-list">
+    <div class="task">
+        <span id="mission-title">Missions:</span>
+    </div>
+</div>
+        <input class="mission-input" type="text" placeholder="Enter a mission">
+        <button class="add-mission">Add Mission</button>
+
+        </section>
+
+    </main>  
+    <script src="./script.js"></script>  
+</body>
+</html>
